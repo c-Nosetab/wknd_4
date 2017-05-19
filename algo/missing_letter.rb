@@ -4,6 +4,25 @@
 
 def find_missing_letter(range)
 
+  #turns range into an array of the characters value
+  string_values = []
+  range.split("").each {|letter| string_values << letter.ord}
+
+  missing_letters = ""
+  num = string_values.min
+
+  until num == string_values.max
+    if string_values.include?(num)
+      num += 1
+    else
+      missing_letters += num.chr
+      num += 1
+    end
+  end
+
+  return nil if missing_letters.length == 0
+  missing_letters
+
 end
 
 # Driver code - don't touch anything below this line.
